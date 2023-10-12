@@ -1,0 +1,461 @@
+cdlaptp speed increase - windws+r then %temp%
+ssh is a network communication protocol that enables communication b/w twpo computers to share data
+passwordless authentication - to login to remoe sever without using password
+Cloud computing is the delivery of computing services like servers, storage,database, networking and software. 
+
+pay as u go model, scalability(storage up/down),accessibility,security and update
+cloud providers - aws,gcp,azure,ibm,tencent,alibaba,salesorce
+
+cloud computing two types : 
+Service model : 
+IAAS(examples:aws,azure) provides underlying infrastructure VMs, storage,servers.
+PAAS(google engine,heroku)offers tools and services for developing ,deploying,managing apps
+SAAS(gmail.salesforce)provides fully functional software applications,
+Deployment model : PRIVATE(more secure),PUBLIC(less secure,google,amazon), HYBRID, COMMUNITY CLOUD(ex: tcs,infosys uses same cloud to store data)
+--> Server is a computer/program that provides services to other computers/clients over a network.
+--> web servers used to host websites, email servers handles emails, database server to store and manage data, application server, ftp server, file, proxy, streaming,fax server. 
+--> To launch a website we need webserver - Apache,Nginx,gws(installed through package)
+
+Software Architectute:
+6 types
+client server ,
+layered (UI,BUSINESS LOGIC,DATA STORAGE-general web browser), 
+microservices(large e commerce-flipkart)[each service has it's own architecture],
+event driven(devices and sensors send events)[temp,motion], 
+mvc,service oriented architecture(soa)
+presentation layer - user interface 
+business layer - controls flow of info b/w 
+data layer - data storage
+one tier - mp3 player( all three included as software package)
+two tier - database is separated
+three tier - web based application
+presentation layer, application layer and database layer all are separated.
+--> AMI contains the software configuration(os,application server and applications) needed to launch instance. AMI has unique ID.
+security groups - set of firewall rules that control the traffic of the instance. region and network specific. port range 0 to 65535.
+deals with inbound and outbound traffic.
+
+SSH - 22, HTTP - 80, HTTPS, 443, JENKINS-8080, SMTP - 25, MYSQL - 3306 , 2049 -FTP, 
+
+LINUX 
+ os - acts as an interface b/w user and computer harware components
+- kernel manages CPU, memory,peripheral devices.It is the lowest level of OS. 
+Daemons - background service (bootstrapping)
+shell -  interface to run commands, shell scripts, programs. 
+
+System commands .
+uname - : display os name
+uname -r : kernel info 
+uname -a : every info of os, kernel
+uptime : how long system has been running
+hostname : system hostname 
+hostname -i : ip address of the system
+exit - to move from root to user
+In real time client name is used as hostname
+To get private ip address 
+1.hostname -i
+2.ifconfig
+3.ip addr show
+To get public ip address : curl ifconfig.me
+cal 08 1999
+w,who,whoami - show who logged into the system
+
+Hardware commands.
+cat /proc/cpuinfo - gives cpu info
+cat /proc/meminfo - info abt hardware memory
+free -m : display free and used memory of ram. m indicates in mb
+lscpu - abt cpu and processing unit
+fdisk -l : list devices attached (ebs volumes attached), show disk partitions,sizes,types
+df -h : display filesystem and their partitions
+,display free space on mounted systems
+df -i : display with inodes, display free inodes on filesystem
+findmnt- displat target mount point on all file system in tree format
+du -sh filename : to know the file size
+cat /proc/version ;to see linux flavor 
+cat /etc/os-release to see linux flavor
+lsblk - to display blocked devices
+lshw - display hardware related info
+ps : list of running processes
+kill -9 PID(process id)
+
+UBUNTU OS (apt- advance package tool)
+apt update -y 
+apt is used to install any softwares
+apt (progress bar visible during installation)
+apt-get (progress bar not visible)
+apt update ensures your package information is up to date and then run apt upgrade to apply any available updates to your installed software.
+
+apt update updates the package lists from repositories, while apt upgrade installs the latest versions of the packages that are already installed on the system
+
+ll(long list) shows file info details(owner,group name,date,hardlinks)
+ls show only file name
+ls -la (display hidden files)
+To keep content in file two ways static and dynamic way.
+STATIC WAY : cat>file1
+Dynamic way : vim
+cntrl+D (to save)
+cat : To view the content in the file
+more: To view the content in the file
+cat>file1  : to add content to a new file
+cat>>file1 : to add content to already created file
+cat>file1 : deletes previous data and adds new data
+cp - to copy content form one file to another file
+mv - to rename file name
+rm - to remove file
+rm -rf * : delete all files
+r - recursively , f-forcefully(ask no permissions)
+head file1 (top 10 lines print:default value)
+tail file1( bottomm 10 lines print:default value)
+head -5 file1(top 5 lines print)
+tac file1 : to print bottom to top (content)
+wc : to display the no. of lines,words,characters in a file
+ACL value is 2 for directory while 1 for file
+mkdir -p dir1/dir2/dir3 (to create directory)
+-p is parenting directory
+SOFT LINK: 
+ln -s dir1/dir2/dir3/ccit link-ccit (create shortcut link)
+USERS:
+cat /etc/passwd : To see the user list (info) 
+getent passwd 
+cat /etc/group : to see group list
+getent group
+cat /etc/shadow ; display password info
+under home directory users are created
+group is created automatically when user is created
+user add ramu : to create a user
+group add siva : to create a group
+passwd username : to create a password for a user
+su - username ; to switch to another user
+id ramu : to see user information (uid,gid,groups)
+usermod -aG siva ramu : to add user to a group
+groupdel siva (to delete a group)
+userdel ramu (to delete a user)
+SUDOERS:
+visudo file need to be edited to give permissions to users
+username ALL=(ALL) NOPASSWD:ALL
+
+chown ramu file1 : to change user ownership
+chgrp ramu file1 : to change group ownership
+chown ramu:ramu file2 (to change user,grp ownership)
+
+Vim modes - command mode, insert mode,save mode
+w-save,q-quit
+to save need to go from insert mode to save mode
+i - to go to insert mode
+I - to go to begining of thr file
+A - to go to end of the file
+o - create new line below
+O - create new line above
+--------
+gg - top of the file
+shift+g bottom of the file
+u -  undo
+yy - copy 
+p - paste
+/name - to search 
+vim -o file1 file2 - to open two files 
+diff file1 file2 - to show difference b/w two files
+pipe(|) output of one command/file becomes input to another file/command
+read : r : 4
+write : w : 2
+execute : x : 1
+default permission of a file 644
+chmod 666 file2 
+chmod u=rw,g=rwx,o=rwx file1
+chmod +x file2 (add x to all)
+root user -> super user -> normal user
+
+Network commands: 
+DNS - domain name system
+forward lookup -> www - ip
+reverse lookup -> ip - www
+
+ping amazon.com - to check whether server is reachable
+whois domain - info about a domain name
+dig -x host : display host info
+host amazon.com - gives ipv4 and ipv6  address
+wget filename - to download file from internet
+hostname -i : display ip address
+netstat -tulpn : to view active ports(all active listening ports)
+Compression/Archives:
+tar -cf imp.tar imp : create archive file imp.tar from file imp
+tar -xf imp.tar :extract archive file imp.tar
+tar -zcvf imp.tar.gz imp - creates gzipped tar archive file from source folder
+gzip imp - compress file with .gz extension
+tar -zxvf imp.tar.gz : untar
+grep - global regular expression print
+grep - to search for a particular word/given pattern
+cat file1 | grep name -i (-i is case insensitive) [OR]
+grep -i name filename
+ [grep --help ]
+cat file1 | grep -v -i name (omit the lines with name and display remaining in file1)
+(or)
+cd - : to go the directory in previous
+SED(stream editor) : to replace or change particular words
+cat /etc/sudoers or visudo (same)
+sed "=" visudo - print lines with numbers 
+sed -n '10,45p' visudo (print 10 to 45 lines from visudo file)
+echo "Abc" , echo "abc" | sed 's/abc/def/'
+abc is changed to def
+cat file1 | sed 's/Morning/evening/' file1
+cat file1 | sed 's/Morning/evening/: s/sun/moon/' file1
+sed '3c\this line is modified' file1 :to change total 3rd line 
+etc contains package(that was installed) configuration files
+
+JENKINS : (follows master slave architecture)
+upstream project can trigger downstream project
+executes after downstream projects
+runs on port 8080
+planning,coding,build,test,uat,release
+different types of tests are unit test,integration test, functional test, performance test, security test.
+artifact is produced in jenkins
+continuous integration = continuous build + continuous test(deployment is optional)
+=> In the build phase, the code is compiled, built, and packaged into a deployable artifact. In the test phase, the artifact is tested to ensure that it meets the quality standards and is ready for deployment
+software environments : dev,test,uat,prod
+Continuous Delivery : Here deployment process is done manually
+Continuous Deployment : Deployment process is done in automation
+pipeline : step by step execution of a particular task
+developer -> github -> continuos build and test -> deploy [CI/CD]
+master gives the jobs to slaves to do the work. If slave are busy then master does the job.
+lables are used to specify the jobs to the nodes.
+To build maven isused.
+JENKINS alternatives : Bamboo,gitlab,buddy
+4 steps to install jenkins
+1. get jenkins repo 
+2. install epel pacakage
+3. install git,jenkins,maven (for ci)
+4. restart
+
+(get repo, install java,install git,maven,jenkins,start)(java -version to check version)
+To install epel packages : amazon-linux-extras install epel  -y
+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 -token in git
+
+integration of git with jenkins.
+
+Choice parameter: used 99% in real time
+build for a particular client
+build in a particular environment (dev/qa/test/prod)
+File parameter:
+To build a file from local use file parameter
+String parameter:
+To pass info after/during build use string parameter
+to know which person done the build
+multi string parameter : build in n number of lines
+Boolean parameter:
+
+Build triggers
+Linked project : if there is link b/w two jobs 
+upstream project if prj1 builds after prj2
+downstream project if prj2 builds after prj1
+vim /var/lib/jenkins/config.xml in 7th line 
+usesecurity give false disable signup true
+CRONJOB: To schedule the jobs that need to be run at a particular intervals
+POLLSCM : To build after developer pushes the code for regular interval
+only build after change any change in git repository
+It checks the repo after every interval time period given by the user and checks any changes in repo. if changes happend then only builds.
+WEBHOOK: if developer changes the code then build happens at that time only.No timing parameter in webhook
+use crontab generator for cronjobs
+VARIABLES :
+EX: to show the build number in the console output
+To check the build number, details and to send in the notification
+default 
+user defined(local and global variables)
+build environment-> build steps-> execute shell-> echo "the build number is :${BUILD_NUMBER}"
+In local space should not be used for variables but in global environment variables space can be used.
+PIPELINE : sequence of tasks
+scripted (easy)and declerative pipeline(length of the pipeline is more)
+Scripted:
+node{
+stage(){
+echo "hw"}
+stage('2'){
+sh 'touch f1'
+}
+to check created file in cli use 
+cd /var/lib/jenkins/workspace/name/
+sh '''   '''  write all the commnds in b/w to execute
+To move from one stage to another stage after build ask prompt use input{message "" ok " "}
+Default builtin node is master ,through ssh master communicates with slave.
+we need to restart sshd service if any changes made to /etc/ssh/sshd_config
+java need to be installed in java
+If we copy the public key from master to slave then ssh connection is established.
+ssh-keygen is used to generate the keys
+1.give passwd to jenkins user, change in visudo , chnage in /etc/ssh/sshd_config,restart 
+
+2. create user in slave, give passwd, change in visudo , chnage in /etc/ssh/sshd_config ,restart
+give passwd of user in slave to master after ssh-aopy-id command
+install java-openjdk11 in slave
+ensure key pair name same in both master and slave
+plugin is a small software
+jenkins backup and restore is done using periodic backup plugin
+create backup directory in master mkdir /opt/backups then give permissions chown -R jenkins:jenkins /opt/backups/
+
+seperate freestyle and pipeline jobs
+throttle build : limit number of builds per hour
+to check exact time of build happend use timestamp to the console output
+
+To decrease the load on the master we use slaves to build the jobs
+agent {
+label 'one'
+} 
+use custom workspace to get the build files in the cli(master or slave )
+to show the freestyle jobs in pipeline use plugin build pipeline
+
+ANSIBLE : Configuration managemnet tool(need python for backend)
+configuartion includes : ram,storage,os,software and ip address of device(both hardware and sofware)
+uses YAML scripting language
+management : update,delete,add (packages)
+with 1 server we work on number of servers.
+ansible gui is called ansible tower.
+we keep all the hosts with their respective group names in the inventory. 
+we write the commands in the playbook, then it checks in the inventory when executed  for the servers.
+we keep the private(real time used) ip adressess of the slaves in the hosts file
+1. amazon-linux-extras install ansible2 -y (to  install ansible)
+2. then install python
+yum install git python python-pip python-level openssl -y
+3. vim /etc/ansible/hosts(add group name and give private ip's)
+4. vim /etc/ansible/ansible.cfg (uncomment inventory and root)
+
+create user in ansible , switch to that user. To check the number of hosts with their ip addresses use : ansible all --list-hosts
+ansible groupname --list-hosts (to get particular group hosts)
+ansible dev --list-hosts
+all = refers to all the machines in the inventory
+
+ groupname[0],groupname[1],groupname[-1],
+ansible all[0] --list-hosts : get first node
+ansible all[2] --list-hosts : get third node
+In all the nodes add user ansible and give password, give superuser permissions in visudo file. vim /etc/ssh/sshd_config  , then restart sshd service. then ssh-keygen , then ssh-copy-id 
+To push code from ansible server to nodes can be done in 3 ways 
+1. Adhoc commands (ad hoc means temporary purpose use,rare works)(simple linux commands)
+2. modules (a single command with key value pair)
+3. playbooks (more than one emodule called playbook) 
+
+inventory file location is /etc/ansible/hosts
+AD-HOC COMMANDS:
+ansible groupname -a "ls"
+-a =argument  ls=command
+ansible dev -a "touch f1"
+ansible dev -a mkdir "armm"
+ansible dev -a "ls"
+ansible dev -a "sudo yum install tree -y"
+ansible dev[1] -ba "yum remove tree -y"
+-b = sudo permission
+
+Modules:(pkg:state,name:state)
+install :present, update:latest,uninstall:absent,start:started,restarted
+ansible groupname -b -m yum -a "pkg=httpd state=present"
+ansible remo -b -m service -a "name=httpd state=started"
+ansible dev -b -m user -a "name=raj state=present"
+ansible dev -ba "cat /etc/passwd"
+ansible dev -b -m user -a "name=raj state=absent"
+ansible dev -bm copy -a "src=file1 dest=/tmp"
+two diff b/w ad-hoc and module 
+-m is present , not present in modules
+key value pair is not used , key value pair is used
+all linux commands can be executed directly, can't be executed all because of key value pair
+
+PLAYBOOKS:(yaml used for configuration files)
+module is collection of configuration of files
+each playbook has one or more modules
+playbook sections:
+target section define hosts(for which hosts playbook has to be executed) 
+variable section : define variables
+task section : list all modules(what need to executed)
+YAML file begins with --- 
+starts with list format with key value pairs
+and ends with ...
+ one.yml
+---
+-hosts: dev 
+user : ansible 
+connection :ssh
+become : yes  ( sudo permission)
+tasks: 
+   -name: installing git
+   action: yum name=git state=present
+   notify: restart httpd
+handlers: 
+   -name: restrat git 
+    action: service name=git state=started
+ansible-playbook file.yml (to execute file)
+
+Handlers:
+if task2 depend on task1 them it is handler (notify keyword is there). if one task depend on another task
+
+LOOPS: with_itemsan
+
+Auto scaling : 
+Hortizontal scaling - creating new ec2 instances
+vertical scaling - increasing existing instances
+scale in - adding instances
+scale out -
+desired capacity ,min capacity ,max capacity 
+
+Webserver(to host a website): serve static content(html,css,js) to clients.
+
+application server(for backend operations): peforms authentication,connects with database,process requests from web clients.Handles user interactions.
+
+Database server(to store data):responsible for storing,retrieving and managing data.
+
+VPC (virtual private cloud):
+To create a private network within the cloud.This network can be used to host applications and data, and it can be isolated from the rest of the internet
+
+public subnet : to expose to internet. servers to handle incoming web requests.
+private subnet :like databases , not directly accessable from internet.
+configure NACLs acts as firewalls at subnet level,security groups(firewalls at instance level). 
+In private subnet application and database server will be there.
+To public subnet ,Internet gateway is connected. To private subnet, NAT gateway is connected.
+only 10 series are allowed in vpc.
+peering connections to connect one vpc to another vpc.
+By default 1 public and 2 private subnets in real time.
+one instance in one vpc, another instance in another vpc.To send traffic from one instance to another instance(for peering)use routing table.
+In peering connection select default vpc then created vpc and select accept request.
+edit the acceptor vpc route table.
+
+GIT :(Global Information Tracker) alternatives gitlab,svn,bit bucket
+It is a Distributed version control system(VCS) or Source code management(SCM).
+It is used to track files and it maintains multiple versions of the same file.Developers can easily fetch and create pull requests without switching.
+If we go from current version to it's previous version then it is called rollback.
+Git stages:
+working directory->(git add)->staging area->(git commit)-repository
+
+Working directory : Here we create files but the files are not tracked and committed.
+staging area: It is a rough draft space
+repository: It is the project folder that contains the collections of files and also history of changes made to those files.
+Types of repositories :
+Local repo: where we make directory. everything that is in .git directory
+remote repo: Git repo stored on some remote system.
+central repo: This will be present in our github
+Installation:
+yum install git -y
+git init. (local repo is .git directory)
+git init . (initialize git local repo in the current directory)
+git status (to check tracked and untracked files)
+git add file1
+git commit -m "This is file1" file1 (-m is message)
+git log : to list the committed files
+git restore --staged file1 (to untrack the tracked file) git rm --cached file1
+Git show commit id filename : to show commit filenmae
+git log --oneline : to see only commit id's and msgs
+git log -n : to show last n commits
+git log --follow --all filename (to see all commits for a single file)
+**git show --name-only : to see commit id and it's filenames
+git config user.name "sum" :to give our name
+git config user.email "sum@gmail.com" : to give our mail id. like who made commit
+ignore(to omit some files from tracking)
+give the filenames(.txt) in the vim .gitignore file and save
+In local default branch is master, in github default branch is main.
+git remote add origin linkofgithub
+git push origin master(to send only tracked and committed files)
+
+
+
+
+
+
+
+
+
+
+
+
+
